@@ -6,26 +6,26 @@
 
 if ( ! function_exists( 'hamilton_setup' ) ) :
 	function hamilton_setup() {
-		
+
 		// Automatic feed
 		add_theme_support( 'automatic-feed-links' );
-		
+
 		// Set content-width
 		global $content_width;
 		if ( ! isset( $content_width ) ) $content_width = 560;
-		
+
 		// Post thumbnails
 		add_theme_support( 'post-thumbnails' );
-		
+
 		// Custom Image Sizes
 		add_image_size( 'hamilton_preview-image', 1200, 9999 );
 		set_post_thumbnail_size( 1860, 9999 );
-		
+
 		// Background color
 		add_theme_support( 'custom-background', array(
 			'default-color' => 'ffffff',
 		) );
-		
+
 		// Custom logo
 		add_theme_support( 'custom-logo', array(
 			'height'      => 400,
@@ -33,20 +33,20 @@ if ( ! function_exists( 'hamilton_setup' ) ) :
 			'flex-height' => true,
 			'flex-width'  => true,
 		) );
-		
+
 		// Title tag
 		add_theme_support( 'title-tag' );
-		
+
 		// Add nav menu
 		register_nav_menu( 'primary-menu', __( 'Primary Menu', 'hamilton' ) );
 		register_nav_menu( 'secondary-menu', __( 'Secondary Menu', 'hamilton' ) );
-		
+
 		// Add excerpts to pages
 		add_post_type_support( 'page', array( 'excerpt' ) );
-		
+
 		// HTML5 semantic markup
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
-		
+
 		// Add Jetpack Infinite Scroll support
 		add_theme_support( 'infinite-scroll', array(
 			'type'           => 'click',
@@ -54,10 +54,10 @@ if ( ! function_exists( 'hamilton_setup' ) ) :
 			'footer_widgets' => false,
 			'container'      => 'posts',
 		) );
-		
+
 		// Make the theme translation ready
 		load_theme_textdomain( 'hamilton', get_template_directory() . '/languages' );
-		
+
 	}
 	add_action( 'after_setup_theme', 'hamilton_setup' );
 endif;
@@ -81,9 +81,12 @@ if ( ! function_exists( 'hamilton_load_style' ) ) :
 
 		$theme_version = wp_get_theme( 'hamilton' )->get( 'Version' );
 
+		wp_register_style( 'hamilton-reset', get_theme_file_uri( '/assets/css/reset.css' ) );
+		wp_enqueue_style( 'hamilton-reset', get_stylesheet_uri(), array( 'hamilton-reset' ), $theme_version );
+
 		wp_register_style( 'hamilton-fonts', get_theme_file_uri( '/assets/css/fonts.css' ) );
 		wp_enqueue_style( 'hamilton-style', get_stylesheet_uri(), array( 'hamilton-fonts' ), $theme_version );
-		
+
 	}
 	add_action( 'wp_enqueue_scripts', 'hamilton_load_style' );
 endif;
@@ -138,7 +141,7 @@ if ( ! function_exists( 'hamilton_post_classes' ) ) :
 
 		// Class indicating presence/lack of post thumbnail
 		$classes[] = ( has_post_thumbnail() ? 'has-thumbnail' : 'missing-thumbnail' );
-		
+
 		return $classes;
 	}
 	add_action( 'post_class', 'hamilton_post_classes' );
@@ -161,27 +164,27 @@ if ( ! function_exists( 'hamilton_body_classes' ) ) :
 		if ( get_theme_mod( 'hamilton_dark_mode' ) ) {
 			$classes[] = 'dark-mode';
 		}
-		
+
 		// Check whether we want the alt nav
 		if ( get_theme_mod( 'hamilton_alt_nav' ) ) {
 			$classes[] = 'show-alt-nav';
 		}
-		
+
 		// Check whether we're doing three preview columns
 		if ( get_theme_mod( 'hamilton_max_columns' ) ) {
 			$classes[] = 'three-columns-grid';
 		}
-		
+
 		// Check whether we're doing three preview columns
 		if ( get_theme_mod( 'hamilton_show_titles' ) ) {
 			$classes[] = 'show-preview-titles';
 		}
-		
+
 		// Add short class to body if resumé page template
 		if ( is_page_template( 'resume-page-template.php' ) ) {
 			$classes[] = 'resume-template';
 		}
-		
+
 		return $classes;
 
 	}
@@ -194,7 +197,7 @@ endif;
 --------------------------------------------------------------------------------------------------- */
 
 if ( ! function_exists( 'hamilton_has_js' ) ) :
-	function hamilton_has_js() { 
+	function hamilton_has_js() {
 
 		?>
 		<script>jQuery( 'html' ).removeClass( 'no-js' ).addClass( 'js' );</script>
