@@ -5,13 +5,13 @@
   ],
   "plugins": [
   	"stylelint-declaration-block-no-ignored-properties",
-  	"stylelint-group-selectors",
   	"stylelint-high-performance-animation",
   	"stylelint-selector-no-empty"
   ],
   "rules": {
+  	"no-descending-specificity": null,
+  	"selector-class-pattern": null,
   	"plugin/declaration-block-no-ignored-properties": true,
-  	"plugin/no-low-performance-animation-properties": true,
-  	"plugin/stylelint-group-selectors": true
+  	"plugin/no-low-performance-animation-properties": true
   }
 }
