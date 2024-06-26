@@ -1,9 +1,12 @@
 # Hamilton
 
 Hamilton is a clean WordPress portfolio theme for creatives designed by
-[Anders Norén](https://andersnoren.se/). This repository holds a fork of
-the theme modified to follow the [WordPress coding
+[Anders Norén](https://andersnoren.se/).
+
+This repository holds a fork of the theme modified to follow the
+[WordPress coding
 standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/).
+No design changes have been made to the theme.
 
 ## Contributing
 
