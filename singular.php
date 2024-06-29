@@ -7,13 +7,23 @@
 
 get_header();
 
-if ( have_posts() )  :
+if ( have_posts() ) :
 
-	while ( have_posts() ) : the_post(); ?>
+	while ( have_posts() ) :
+		the_post();
+		?>
 
 		<article <?php post_class( 'entry section-inner' ); ?>>
 
-			<header class="page-header section-inner thin<?php if ( has_post_thumbnail() ) echo ' fade-block'; ?>">
+			<?php
+				$hamilton_fade_class = '';
+
+			if ( has_post_thumbnail() ) {
+				$hamilton_fade_class = ' fade-block';
+			}
+			?>
+
+			<header class="page-header section-inner thin<?php echo esc_attr( $hamilton_fade_class ); ?>">
 
 				<div>
 
@@ -21,25 +31,33 @@ if ( have_posts() )  :
 
 					the_title( '<h1 class="title entry-title">', '</h1>' );
 
-					// Make sure we have a custom excerpt
-					if ( has_excerpt() ) the_excerpt();
+					// Make sure we have a custom excerpt.
+					if ( has_excerpt() ) {
+						the_excerpt();
+					}
 
-					// Only output post meta data on single
-					if ( is_single() ) : ?>
+					// Only output post meta data on single.
+					if ( is_single() ) :
+						?>
 
 						<div class="meta">
 
 							<?php
-							echo __( 'In', 'hamilton' ) . ' '; the_category( ', ' );
+							echo esc_html__( 'In', 'hamilton' ) . ' ';
+								the_category( ', ' );
 
-							if ( comments_open() ) : ?>
+							if ( comments_open() ) :
+								?>
 								<span>&bull;</span>
-								<?php comments_popup_link(
-									__( 'Add Comment', 'hamilton' ),
-									__( '1 Comment', 'hamilton' ),
-									sprintf( __('%s Comments', 'hamilton' ), '%' ),
-									''
-								); ?>
+								<?php
+									comments_popup_link(
+										__( 'Add Comment', 'hamilton' ),
+										__( '1 Comment', 'hamilton' ),
+										// translators: %s is the number of comments.
+										sprintf( __( '%s Comments', 'hamilton' ), '%' ),
+										''
+									);
+								?>
 							<?php endif; ?>
 
 						</div><!-- .meta -->
@@ -69,11 +87,14 @@ if ( have_posts() )  :
 
 			<?php
 
-			wp_link_pages( array(
-				'before' => '<p class="section-inner thin linked-pages">' . __( 'Pages:', 'hamilton' ),
-			) );
+			wp_link_pages(
+				array(
+					'before' => '<p class="section-inner thin linked-pages">' . __( 'Pages:', 'hamilton' ),
+				)
+			);
 
-			if ( get_post_type() == 'post' ) : ?>
+			if ( get_post_type() == 'post' ) :
+				?>
 
 				<div class="meta bottom section-inner thin">
 
@@ -91,8 +112,9 @@ if ( have_posts() )  :
 
 			<?php
 
-			// Output comments wrapper if comments are open, or if there's a comment number – and check for password
-			if ( ( comments_open() || get_comments_number() ) && ! post_password_required() ) : ?>
+			// Output comments wrapper if comments are open, or if there's a comment number – and check for password.
+			if ( ( comments_open() || get_comments_number() ) && ! post_password_required() ) :
+				?>
 
 				<div class="section-inner thin">
 					<?php comments_template(); ?>
@@ -104,7 +126,9 @@ if ( have_posts() )  :
 
 		<?php
 
-		if ( get_post_type() == 'post' ) get_template_part( 'related-posts' );
+		if ( get_post_type() == 'post' ) {
+			get_template_part( 'related-posts' );
+		}
 
 	endwhile;
 
