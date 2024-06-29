@@ -1,4 +1,12 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying 404 pages (not found).
+ *
+ * @package Hamilton
+ */
+
+get_header();
+?>
 
 <div class="section-inner">
 
@@ -11,9 +19,9 @@
 			<p><?php _e( "The page you're looking for could not be found. It may have been removed, renamed, or maybe it didn't exist in the first place.", "hamilton" ); ?></p>
 
 			<div class="meta">
-			
+
 				<a href="<?php echo esc_url( home_url() ); ?>"><?php _e( 'To the front page', 'hamilton' ); ?></a>
-			
+
 			</div>
 
 		</div>

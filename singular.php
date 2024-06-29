@@ -1,18 +1,23 @@
-<?php 
+<?php
+/**
+ * The template for displaying all single posts and attachments.
+ *
+ * @package Hamilton
+ */
 
 get_header();
 
-if ( have_posts() )  : 
+if ( have_posts() )  :
 
 	while ( have_posts() ) : the_post(); ?>
 
 		<article <?php post_class( 'entry section-inner' ); ?>>
-		
+
 			<header class="page-header section-inner thin<?php if ( has_post_thumbnail() ) echo ' fade-block'; ?>">
-			
+
 				<div>
-			
-					<?php 
+
+					<?php
 
 					the_title( '<h1 class="title entry-title">', '</h1>' );
 
@@ -24,25 +29,25 @@ if ( have_posts() )  :
 
 						<div class="meta">
 
-							<?php 
-							echo __( 'In', 'hamilton' ) . ' '; the_category( ', ' ); 
+							<?php
+							echo __( 'In', 'hamilton' ) . ' '; the_category( ', ' );
 
 							if ( comments_open() ) : ?>
 								<span>&bull;</span>
-								<?php comments_popup_link( 
-									__( 'Add Comment', 'hamilton' ), 
-									__( '1 Comment', 'hamilton' ), 
-									sprintf( __('%s Comments', 'hamilton' ), '%' ), 
-									'' 
+								<?php comments_popup_link(
+									__( 'Add Comment', 'hamilton' ),
+									__( '1 Comment', 'hamilton' ),
+									sprintf( __('%s Comments', 'hamilton' ), '%' ),
+									''
 								); ?>
 							<?php endif; ?>
 
 						</div><!-- .meta -->
 
 					<?php endif; ?>
-					
+
 				</div>
-			
+
 			</header><!-- .page-header -->
 
 			<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
@@ -55,27 +60,27 @@ if ( have_posts() )  :
 
 			<div class="entry-content section-inner thin">
 
-				<?php 
+				<?php
 				the_content();
-				edit_post_link(); 
+				edit_post_link();
 				?>
 
 			</div><!-- .content -->
 
-			<?php 
-			
+			<?php
+
 			wp_link_pages( array(
 				'before' => '<p class="section-inner thin linked-pages">' . __( 'Pages:', 'hamilton' ),
-			) ); 
-			
+			) );
+
 			if ( get_post_type() == 'post' ) : ?>
 
 				<div class="meta bottom section-inner thin">
-				
+
 					<?php if ( get_the_tags() ) : ?>
-				
+
 						<p class="tags"><?php the_tags( '<span>#', '</span><span>#', '</span> ' ); ?></p>
-					
+
 					<?php endif; ?>
 
 					<p class="post-date"><a href="<?php the_permalink(); ?>"><?php the_date( get_option( 'date_format' ) ); ?></a>
@@ -83,26 +88,26 @@ if ( have_posts() )  :
 				</div><!-- .meta -->
 
 			<?php endif; ?>
-			
-			<?php 
-			
+
+			<?php
+
 			// Output comments wrapper if comments are open, or if there's a comment number – and check for password
 			if ( ( comments_open() || get_comments_number() ) && ! post_password_required() ) : ?>
-			
+
 				<div class="section-inner thin">
 					<?php comments_template(); ?>
 				</div><!-- .section-inner -->
-			
+
 			<?php endif; ?>
 
 		</article><!-- .entry -->
 
-		<?php 
-		
+		<?php
+
 		if ( get_post_type() == 'post' ) get_template_part( 'related-posts' );
 
 	endwhile;
 
-endif; 
+endif;
 
 get_footer(); ?>

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Hamilton theme customizer functionality for the WordPress Customizer.
+ *
+ * @package Hamilton
+ */
 
 /* CUSTOMIZER SETTINGS
 ------------------------------------------------ */
@@ -29,7 +34,7 @@ if ( ! class_exists( 'Hamilton_Customize' ) ) :
 				'label' 		=> __( 'Dark Mode', 'hamilton' ),
 				'description' 	=> __( 'Displays the site with white text and black background. If Background Color is set, only the text color will change.', 'hamilton' ),
 			) );
-			
+
 			// Always show preview titles
 			$wp_customize->add_setting( 'hamilton_alt_nav', array(
 				'capability' 		=> 'edit_theme_options',
@@ -43,7 +48,7 @@ if ( ! class_exists( 'Hamilton_Customize' ) ) :
 				'label' 		=> __( 'Show Primary Menu in the Header', 'hamilton' ),
 				'description' 	=> __( 'Replace the navigation toggle in the header with the Primary Menu on desktop.', 'hamilton' ),
 			) );
-			
+
 			// Maximum number of columns
 			$wp_customize->add_setting( 'hamilton_max_columns', array(
 				'capability' 		=> 'edit_theme_options',
@@ -57,7 +62,7 @@ if ( ! class_exists( 'Hamilton_Customize' ) ) :
 				'label' 		=> __( 'Three Columns', 'hamilton' ),
 				'description' 	=> __( 'Check to use three columns in the post grid on desktop.', 'hamilton' ),
 			) );
-			
+
 			// Always show preview titles
 			$wp_customize->add_setting( 'hamilton_show_titles', array(
 				'capability' 		=> 'edit_theme_options',
@@ -71,7 +76,7 @@ if ( ! class_exists( 'Hamilton_Customize' ) ) :
 				'label' 		=> __( 'Show Preview Titles', 'hamilton' ),
 				'description' 	=> __( 'Check to always show the titles in the post previews.', 'hamilton' ),
 			) );
-			
+
 			// Set the home page title
 			$wp_customize->add_setting( 'hamilton_home_title', array(
 				'capability' 		=> 'edit_theme_options',
@@ -84,18 +89,18 @@ if ( ! class_exists( 'Hamilton_Customize' ) ) :
 				'label' 		=> __( 'Front Page Title', 'hamilton' ),
 				'description' 	=> __( 'The title you want shown on the front page when the "Front page displays" setting is set to "Your latest posts" in Settings > Reading.', 'hamilton' ),
 			) );
-			
+
 			// Make built-in controls use live JS preview
 			$wp_customize->get_setting( 'blogname' )->transport = 'postMessage';
 			$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
-			
+
 			// SANITATION
 
 			// Sanitize boolean for checkbox
 			function hamilton_sanitize_checkbox( $checked ) {
 				return ( ( isset( $checked ) && true == $checked ) ? true : false );
 			}
-			
+
 		}
 
 		// Initiate the live preview JS

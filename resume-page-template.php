@@ -1,4 +1,9 @@
-<?php 
+<?php
+/**
+ * The template for displaying a resume page.
+ *
+ * @package Hamilton
+ */
 
 /* Template Name: Resume */
 

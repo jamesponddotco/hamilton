@@ -1,8 +1,16 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The main template file.
+ *
+ * @package Hamilton
+ */
+
+get_header();
+?>
 
 <div class="section-inner">
 
-	<?php 
+	<?php
 
 	$archive_title_elem 	= is_front_page() || ( is_home() && get_option( 'show_on_front' ) == 'posts' ) ? 'h2' : 'h1';
 	$archive_title 			= get_the_archive_title();
@@ -32,22 +40,22 @@
 
 		<div class="posts" id="posts">
 
-			<?php 
+			<?php
 			while ( have_posts() ) : the_post();
 
 				get_template_part( 'content' );
 
-			endwhile; 
+			endwhile;
 			?>
 
 		</div><!-- .posts -->
-	
+
 	<?php endif; ?>
 
 </div><!-- .section-inner -->
 
-<?php 
+<?php
 
-get_template_part( 'pagination' ); 
+get_template_part( 'pagination' );
 
 get_footer(); ?>

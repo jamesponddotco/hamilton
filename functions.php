@@ -1,4 +1,11 @@
 <?php
+/**
+ * Hamilton.
+ *
+ * This file adds functions to the Hamilton theme.
+ *
+ * @package Hamilton
+ */
 
 /*	-----------------------------------------------------------------------------------------------
 	THEME SETUP

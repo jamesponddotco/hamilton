@@ -1,4 +1,9 @@
-<?php 
+<?php
+/**
+ * Template part for displaying posts.
+ *
+ * @package Hamilton
+ */
 
 $extra_classes = 'post-preview tracker';
 
@@ -21,23 +26,23 @@ $image_style_attr = ( has_post_thumbnail() && ! post_password_required() ) ? ' s
 ?>
 
 <a <?php post_class( $extra_classes ); ?> id="post-<?php the_ID(); ?>" href="<?php the_permalink(); ?>">
-	
+
 	<div class="preview-image"<?php echo $image_style_attr; ?>>
-		<?php 
+		<?php
 		if ( has_post_thumbnail() && ! post_password_required() ) {
 			the_post_thumbnail( 'hamilton_preview-image' );
 		}
 		?>
 	</div>
-	
+
 	<header class="preview-header">
-	
+
 		<?php if ( is_sticky() ) : ?>
 			<span class="sticky-post"><?php _e( 'Sticky', 'hamilton' ); ?></span>
 		<?php endif; ?>
-	
+
 		<?php the_title( '<h2 class="title">', '</h2>' ); ?>
-	
+
 	</header>
 
 </a>
