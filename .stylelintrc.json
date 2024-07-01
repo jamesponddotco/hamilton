@@ -10,6 +10,7 @@
   ],
   "rules": {
   	"no-descending-specificity": null,
+  	"no-duplicate-selectors": null,
   	"selector-class-pattern": null,
   	"plugin/declaration-block-no-ignored-properties": true,
   	"plugin/no-low-performance-animation-properties": true
