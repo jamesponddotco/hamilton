@@ -6,8 +6,8 @@ Hamilton is a clean WordPress portfolio theme for creatives designed by
 This repository holds a fork of the theme modified to follow the
 [WordPress coding
 standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/).
-No design changes have been made to the theme, but animations have been
-removed to improve performance.
+No design changes have been made to the theme, but animations and
+related posts have been removed to improve performance.
 
 ## Contributing
 

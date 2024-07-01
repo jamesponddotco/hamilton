@@ -1197,51 +1197,6 @@ main {
 	margin-left: 20px;
 }
 
-/* Related Posts ----------------------------- */
-
-.related-posts-wrapper {
-	margin-top: 100px;
-}
-
-.related-posts {
-	margin: -10px;
-}
-
-.related-posts .post-preview {
-	float: left;
-}
-
-.related-posts .post-preview:nth-child(3) {
-	display: none;
-}
-
-.related-posts .post-preview .preview-image img {
-	display: none;
-}
-
-.related-posts .post-preview .preview-image::before {
-	display: block;
-	width: 100%;
-	padding-bottom: 150%;
-	content: "";
-}
-
-@media ( min-width: 1001px ) {
-
-	.related-posts .post-preview {
-		width: 33.3%;
-	}
-
-	.related-posts .post-preview h2 {
-		font-size: 28px;
-	}
-
-	.related-posts .post-preview:nth-child(3) {
-		display: block;
-	}
-
-}
-
 /*	8.	Blocks
 /* ------------------------------------------------------------------------- */
 
@@ -2548,10 +2503,6 @@ p.has-drop-cap:not(:focus)::first-letter {
 	.meta.bottom p + p {
 		margin-top: 8px;
 		float: none;
-	}
-
-	.related-posts-wrapper {
-		margin-top: 50px;
 	}
 
 	/* Archive ----------------------------- */
