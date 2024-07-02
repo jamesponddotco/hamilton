@@ -30,7 +30,6 @@ if ( post_password_required() ) {
 				array(
 					'style'       => 'div',
 					'avatar_size' => 110,
-					'callback'    => 'hamilton_comment',
 				)
 			);
 
