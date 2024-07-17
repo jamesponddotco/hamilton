@@ -7,6 +7,7 @@
  * @package Hamilton
  */
 
+declare ( strict_types = 1 );
 ?>
 		</main>
 

@@ -7,6 +7,8 @@
  * @package Hamilton
  */
 
+declare ( strict_types = 1 );
+
 add_action( 'after_setup_theme', 'hamilton_setup' );
 /**
  * Sets up theme defaults and registers support for various WordPress features.

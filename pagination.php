@@ -5,6 +5,8 @@
  * @package Hamilton
  */
 
+declare ( strict_types = 1 );
+
 if ( get_the_posts_pagination() ) :
 	?>
 

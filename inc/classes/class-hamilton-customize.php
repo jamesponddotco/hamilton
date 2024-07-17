@@ -5,6 +5,8 @@
  * @package Hamilton
  */
 
+declare ( strict_types = 1 );
+
 if ( ! class_exists( 'Hamilton_Customize' ) ) :
 	/**
 	 * Hamilton_Customize Class
@@ -18,7 +20,7 @@ if ( ! class_exists( 'Hamilton_Customize' ) ) :
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public static function register( $wp_customize ) {
+		public static function register( $wp_customize ): void {
 
 			// Add our Customizer section.
 			$wp_customize->add_section(
@@ -139,7 +141,7 @@ if ( ! class_exists( 'Hamilton_Customize' ) ) :
 			 *
 			 * @param bool $checked Whether the checkbox is checked.
 			 */
-			function hamilton_sanitize_checkbox( $checked ) {
+			function hamilton_sanitize_checkbox( $checked ): bool {
 				return ( ( isset( $checked ) && true == $checked ) ? true : false );
 			}
 		}
@@ -147,7 +149,7 @@ if ( ! class_exists( 'Hamilton_Customize' ) ) :
 		/**
 		 * Initiate the live preview JS.
 		 */
-		public static function live_preview() {
+		public static function live_preview(): void {
 			wp_enqueue_script(
 				'hamilton-themecustomizer',
 				get_template_directory_uri() . '/assets/js/theme-customizer.js',

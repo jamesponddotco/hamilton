@@ -5,6 +5,8 @@
  * @package Hamilton
  */
 
+declare ( strict_types = 1 );
+
 $hamilton_extra_classes = 'post-preview tracker';
 
 // Determine whether a fallback is needed for sizing.
