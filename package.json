@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "@wordpress/eslint-plugin": "^19.1.0",
-    "@wordpress/stylelint-config": "^22.1.0",
+    "@wordpress/eslint-plugin": "^20.0.0",
+    "@wordpress/stylelint-config": "^22.3.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-unicorn": "^54.0.0",
     "stylelint-config-idiomatic-order": "^10.0.0",
